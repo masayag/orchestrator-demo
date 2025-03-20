@@ -1,0 +1,21 @@
+schemaVersion: 2.3.0
+metadata:
+  name: orchestrator-devspaces-y3eu
+  namespace: user1-devspaces
+attributes:
+  controller.devfile.io/bootstrap-devworkspace: true
+projects:
+  - name: orchestrator-devspaces
+    git:
+      remotes:
+        origin: https://github.com/masayag/orchestrator-demo.git
+      checkoutFrom:
+        revision: devspaces
+components:
+  - name: orchestrator-devspaces
+    container:
+      image: registry.redhat.io/devspaces/udi-rhel9@sha256:65c893972c503b136d6b373c49f113b8c63530d4c7873ef8ab20357e5d43fe7a
+      memoryLimit: 8Gi
+      memoryRequest: 1Gi
+      cpuLimit: "2"
+      cpuRequest: 200m
